@@ -24,6 +24,21 @@ namespace SignalRChat
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //services.AddCors(options => options.AddPolicy("CorsPolicy",
+            //builder =>
+            //{
+            //    builder
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader()
+            //         .AllowAnyOrigin()
+            //        .WithOrigins("http://localhost:5002/")
+            //        .AllowCredentials();
+            //}));
+
+
+
+
             services.AddRazorPages();
 
             //services.AddCors(options => options.AddPolicy("CorsPolicy",
@@ -40,8 +55,11 @@ namespace SignalRChat
             //{
             //    builder.AllowAnyMethod().AllowAnyHeader()
             //        .AllowAnyHeader()
-            //        .WithOrigins("http://localhost:5002");                
+            //        .WithOrigins("http://*:5002");
             //}));
+
+
+ 
 
 
 
@@ -64,12 +82,12 @@ namespace SignalRChat
                 app.UseHsts();
             }
 
+           
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            //app.UseCors("CorsPolicy");
-
             app.UseRouting();
+            //app.UseCors("CorsPolicy");
 
             app.UseAuthorization();        
 
