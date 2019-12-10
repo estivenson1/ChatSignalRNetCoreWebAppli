@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Common.ChatSignalRNetCoreWebAppli.Models;
+using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 
 namespace SignalRChat.Hubs
@@ -13,6 +14,11 @@ namespace SignalRChat.Hubs
         public async Task SendMessagePrivate(string user, string to, string message)
         {
             await Clients.All.SendAsync("ReceiveMessagePrivate", user, to, message);
+        }
+
+        public async Task SendMessageServer(EmployeeInfo user, string to, string message)
+        {
+            await Clients.All.SendAsync("ReceiveMessageServer", user, to, message);
         }
 
     }

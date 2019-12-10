@@ -45,8 +45,8 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
                 {
                     //if (to == txtFrom.Text)
                     //{
-                        var newMessage = $"{user}: {message}";
-                        messagesList.Items.Add(newMessage);
+                    var newMessage = $"{user}: {message}";
+                    messagesList.Items.Add(newMessage);
                     //}
 
                 }));
@@ -58,15 +58,12 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
             {
                 this.Invoke((Action)(() =>
                 {
-                    //if (to == txtFrom.Text)
-                    //{
-
-
-                    var tox = to;
+                    if (to == ctUser.Text)
+                    {
+                        var tox = to;
                         var newMessage = $"{user}: {message}";
                         messagesList.Items.Add(newMessage);
-                    //}
-
+                    }
                 }));
             });
 
@@ -102,7 +99,7 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
             try
             {
                 await connection.InvokeAsync("SendMessagePrivate",
-                    ctUser.Text, txtFrom.Text, ctMessage.Text);
+                    ctUser.Text, ctTo.Text, ctMessage.Text);
                 //messagesList.Items.Add($"{txtFrom.Text}:{ctMessage.Text}");
             }
             catch (Exception ex)

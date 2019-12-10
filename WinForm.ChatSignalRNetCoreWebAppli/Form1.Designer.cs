@@ -35,7 +35,7 @@
             this.btSendMessage = new System.Windows.Forms.Button();
             this.btConectar = new System.Windows.Forms.Button();
             this.messagesList = new System.Windows.Forms.ListBox();
-            this.txtFrom = new System.Windows.Forms.TextBox();
+            this.ctTo = new System.Windows.Forms.TextBox();
             this.btMsPrivado = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -87,24 +87,24 @@
             this.btConectar.Name = "btConectar";
             this.btConectar.Size = new System.Drawing.Size(75, 23);
             this.btConectar.TabIndex = 5;
-            this.btConectar.Text = "button1";
+            this.btConectar.Text = "Conectar";
             this.btConectar.UseVisualStyleBackColor = true;
             this.btConectar.Click += new System.EventHandler(this.btConectar_Click);
             // 
             // messagesList
             // 
             this.messagesList.FormattingEnabled = true;
-            this.messagesList.Location = new System.Drawing.Point(33, 141);
+            this.messagesList.Location = new System.Drawing.Point(3, 135);
             this.messagesList.Name = "messagesList";
             this.messagesList.Size = new System.Drawing.Size(354, 355);
             this.messagesList.TabIndex = 6;
             // 
-            // txtFrom
+            // ctTo
             // 
-            this.txtFrom.Location = new System.Drawing.Point(232, 66);
-            this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(100, 20);
-            this.txtFrom.TabIndex = 7;
+            this.ctTo.Location = new System.Drawing.Point(232, 66);
+            this.ctTo.Name = "ctTo";
+            this.ctTo.Size = new System.Drawing.Size(100, 20);
+            this.ctTo.TabIndex = 7;
             // 
             // btMsPrivado
             // 
@@ -120,9 +120,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 502);
+            this.ClientSize = new System.Drawing.Size(363, 502);
             this.Controls.Add(this.btMsPrivado);
-            this.Controls.Add(this.txtFrom);
+            this.Controls.Add(this.ctTo);
             this.Controls.Add(this.messagesList);
             this.Controls.Add(this.btConectar);
             this.Controls.Add(this.btSendMessage);
@@ -146,7 +146,7 @@
         private System.Windows.Forms.Button btSendMessage;
         private System.Windows.Forms.Button btConectar;
         private System.Windows.Forms.ListBox messagesList;
-        private System.Windows.Forms.TextBox txtFrom;
+        private System.Windows.Forms.TextBox ctTo;
         private System.Windows.Forms.Button btMsPrivado;
     }
 }
