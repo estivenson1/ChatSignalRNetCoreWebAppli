@@ -16,7 +16,7 @@ namespace SignalRChat.Hubs
             await Clients.All.SendAsync("ReceiveMessagePrivate", user, to, message);
         }
 
-        public async Task SendMessageServer(EmployeeInfo user, string to, string message)
+        public async Task SendMessageServer(EmployeeInfo user, string to, MsEvent message)
         {
             await Clients.All.SendAsync("ReceiveMessageServer", user, to, message);
         }

@@ -100,13 +100,25 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
             {
                 await connection.InvokeAsync("SendMessagePrivate",
                     ctUser.Text, ctTo.Text, ctMessage.Text);
-                //messagesList.Items.Add($"{txtFrom.Text}:{ctMessage.Text}");
             }
             catch (Exception ex)
             {
                 messagesList.Items.Add(ex.Message);
             }
 
+        }
+
+        private async void btnMsEvent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await connection.InvokeAsync("SendMessagePrivate",
+                    ctUser.Text, ctTo.Text, ctMessage.Text);
+            }
+            catch (Exception ex)
+            {
+                messagesList.Items.Add(ex.Message);
+            }
         }
     }
 }

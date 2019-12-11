@@ -37,12 +37,13 @@
             this.messagesList = new System.Windows.Forms.ListBox();
             this.ctTo = new System.Windows.Forms.TextBox();
             this.btMsPrivado = new System.Windows.Forms.Button();
+            this.btnMsEvent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 41);
+            this.label1.Location = new System.Drawing.Point(0, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
@@ -51,7 +52,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 75);
+            this.label2.Location = new System.Drawing.Point(3, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 1;
@@ -59,21 +60,21 @@
             // 
             // ctUser
             // 
-            this.ctUser.Location = new System.Drawing.Point(90, 41);
+            this.ctUser.Location = new System.Drawing.Point(60, 9);
             this.ctUser.Name = "ctUser";
             this.ctUser.Size = new System.Drawing.Size(100, 20);
             this.ctUser.TabIndex = 2;
             // 
             // ctMessage
             // 
-            this.ctMessage.Location = new System.Drawing.Point(90, 75);
+            this.ctMessage.Location = new System.Drawing.Point(60, 43);
             this.ctMessage.Name = "ctMessage";
             this.ctMessage.Size = new System.Drawing.Size(100, 20);
             this.ctMessage.TabIndex = 3;
             // 
             // btSendMessage
             // 
-            this.btSendMessage.Location = new System.Drawing.Point(36, 101);
+            this.btSendMessage.Location = new System.Drawing.Point(6, 69);
             this.btSendMessage.Name = "btSendMessage";
             this.btSendMessage.Size = new System.Drawing.Size(154, 23);
             this.btSendMessage.TabIndex = 4;
@@ -83,7 +84,7 @@
             // 
             // btConectar
             // 
-            this.btConectar.Location = new System.Drawing.Point(232, 37);
+            this.btConectar.Location = new System.Drawing.Point(202, 5);
             this.btConectar.Name = "btConectar";
             this.btConectar.Size = new System.Drawing.Size(75, 23);
             this.btConectar.TabIndex = 5;
@@ -101,14 +102,14 @@
             // 
             // ctTo
             // 
-            this.ctTo.Location = new System.Drawing.Point(232, 66);
+            this.ctTo.Location = new System.Drawing.Point(202, 34);
             this.ctTo.Name = "ctTo";
             this.ctTo.Size = new System.Drawing.Size(100, 20);
             this.ctTo.TabIndex = 7;
             // 
             // btMsPrivado
             // 
-            this.btMsPrivado.Location = new System.Drawing.Point(232, 92);
+            this.btMsPrivado.Location = new System.Drawing.Point(202, 60);
             this.btMsPrivado.Name = "btMsPrivado";
             this.btMsPrivado.Size = new System.Drawing.Size(75, 23);
             this.btMsPrivado.TabIndex = 8;
@@ -116,11 +117,22 @@
             this.btMsPrivado.UseVisualStyleBackColor = true;
             this.btMsPrivado.Click += new System.EventHandler(this.btMsPrivado_Click);
             // 
+            // btnMsEvent
+            // 
+            this.btnMsEvent.Location = new System.Drawing.Point(202, 90);
+            this.btnMsEvent.Name = "btnMsEvent";
+            this.btnMsEvent.Size = new System.Drawing.Size(100, 23);
+            this.btnMsEvent.TabIndex = 9;
+            this.btnMsEvent.Text = "MsEvent";
+            this.btnMsEvent.UseVisualStyleBackColor = true;
+            this.btnMsEvent.Click += new System.EventHandler(this.btnMsEvent_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 502);
+            this.Controls.Add(this.btnMsEvent);
             this.Controls.Add(this.btMsPrivado);
             this.Controls.Add(this.ctTo);
             this.Controls.Add(this.messagesList);
@@ -148,6 +160,7 @@
         private System.Windows.Forms.ListBox messagesList;
         private System.Windows.Forms.TextBox ctTo;
         private System.Windows.Forms.Button btMsPrivado;
+        private System.Windows.Forms.Button btnMsEvent;
     }
 }
 
