@@ -40,6 +40,7 @@
             this.btnMsEvent = new System.Windows.Forms.Button();
             this.ctIdUser = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -50,6 +51,7 @@
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "User";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -105,11 +107,11 @@
             // 
             // ctTo
             // 
-            this.ctTo.Location = new System.Drawing.Point(192, 45);
+            this.ctTo.Location = new System.Drawing.Point(217, 45);
             this.ctTo.Name = "ctTo";
-            this.ctTo.Size = new System.Drawing.Size(100, 20);
+            this.ctTo.Size = new System.Drawing.Size(75, 20);
             this.ctTo.TabIndex = 7;
-            this.ctTo.Text = "Server";
+            this.ctTo.Text = "Server1";
             // 
             // btMsPrivado
             // 
@@ -148,11 +150,21 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "IdUser";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(191, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "To";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 558);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ctIdUser);
             this.Controls.Add(this.btnMsEvent);
@@ -186,6 +198,7 @@
         private System.Windows.Forms.Button btnMsEvent;
         private System.Windows.Forms.TextBox ctIdUser;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

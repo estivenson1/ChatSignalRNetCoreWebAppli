@@ -10,6 +10,6 @@ namespace Common.ChatSignalRNetCoreWebAppli.Models
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
         public object Data { get; set; }
-        public EventTypes EventType { get; set; }
+        public string EventType { get; set; }
     }
 }

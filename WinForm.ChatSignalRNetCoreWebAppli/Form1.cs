@@ -5,11 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Common.ChatSignalRNetCoreWebAppli.Enums;
 using Common.ChatSignalRNetCoreWebAppli.Models;
 using Microsoft.AspNetCore.SignalR.Client;
+using Newtonsoft.Json;
 
 namespace WinForm.ChatSignalRNetCoreWebAppli
 {
@@ -21,7 +23,7 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
             InitializeComponent();
 
             connection = new HubConnectionBuilder()
-            .WithUrl("https://localhost:5001/chatHub/")
+            .WithUrl("http://localhost:50894/chatHub/")
             .Build();
 
             connection.Closed += async (error) =>
@@ -70,13 +72,23 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
 
             connection.On<string, string, MsEvent>("ReceiveMessageServer", (user, to, message) =>
             {
-                this.Invoke((Action)(() =>
+                this.Invoke((Action)(async () =>
                 {
-                    if (to == ctUser.Text)
+                    string User = ctUser.Text + ctIdUser.Text;
+                    if (to == User)
                     {
-                        EmployeeInfo employee = message.Data as EmployeeInfo;
-                       var tox = to;
-                        var newMessage = $"{user}: {employee.iEmployeeNum+employee.tFirstName+employee.tLastName}";
+
+
+                        //EmployeeInfo employee = message.Data as EmployeeInfo;
+                        //string json = JsonConvert.SerializeObject(message.Data);
+                        // var emp = JsonConvert.DeserializeObject<EmployeeInfo>(json);
+
+                        var emp=JsonConvert.DeserializeObject<EmployeeInfo>(message.Data.ToString());
+
+                        // EmployeeInfo emp = await JsonSerializer.DeserializeAsync<EmployeeInfo>()
+
+                        var tox = to;
+                        var newMessage = $"{user}: {emp.iEmployeeNum + emp.tFirstName + emp.tLastName}";
                         messagesList.Items.Add(newMessage);
                     }
                 }));
@@ -124,12 +136,12 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
         }
 
         private async void btnMsEvent_Click(object sender, EventArgs e)
-        {
+        {   
             try
             {
                 MsEvent message = new MsEvent
                 {
-                    EventType =EventTypes.AddCounter,
+                    EventType =EventTypes.AddCounter.ToString(),
                     Message="Hola Add Counter",
                     Data=new EmployeeInfo
                     {
@@ -140,13 +152,18 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
                         iCounter=10,
                     }
                 };
-                await connection.InvokeAsync("SendMessageServer",
-                    ctUser.Text+ctIdUser, ctTo.Text, message);
+                string user = ctUser.Text + ctIdUser.Text;
+                await connection.InvokeAsync("SendMessageServer", user, ctTo.Text, message);
             }
             catch (Exception ex)
             {
                 messagesList.Items.Add(ex.Message);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

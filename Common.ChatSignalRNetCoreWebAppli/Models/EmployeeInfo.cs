@@ -25,7 +25,7 @@ namespace Common.ChatSignalRNetCoreWebAppli.Models
         public bool bValidDate { get; set; }
         public bool bVisitDate { get; set; }
         //public Color cColor { get; set; }
-        public Dictionary<int, int> Counters { get; set; }
+        //public Dictionary<int, int> Counters { get; set; }
         public DateTime dtEmpDate { get; set; }
         public DateTime dtStartDate { get; set; }
         public DateTime dtStopDate { get; set; }
