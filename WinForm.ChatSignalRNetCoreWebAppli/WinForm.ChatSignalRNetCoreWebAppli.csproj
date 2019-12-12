@@ -169,5 +169,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common.ChatSignalRNetCoreWebAppli\Common.ChatSignalRNetCoreWebAppli.csproj">
+      <Project>{1E3B44AC-35B9-48BA-A988-1F07AF2D4544}</Project>
+      <Name>Common.ChatSignalRNetCoreWebAppli</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

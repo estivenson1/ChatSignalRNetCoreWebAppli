@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Common.ChatSignalRNetCoreWebAppli.Enums;
+using Common.ChatSignalRNetCoreWebAppli.Models;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace WinForm.ChatSignalRNetCoreWebAppli
@@ -67,6 +68,20 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
                 }));
             });
 
+            connection.On<string, string, MsEvent>("ReceiveMessageServer", (user, to, message) =>
+            {
+                this.Invoke((Action)(() =>
+                {
+                    if (to == ctUser.Text)
+                    {
+                        EmployeeInfo employee = message.Data as EmployeeInfo;
+                       var tox = to;
+                        var newMessage = $"{user}: {employee.iEmployeeNum+employee.tFirstName+employee.tLastName}";
+                        messagesList.Items.Add(newMessage);
+                    }
+                }));
+            });
+
 
             try
             {
@@ -97,7 +112,7 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
         private async void btMsPrivado_Click(object sender, EventArgs e)
         {
             try
-            {
+            {               
                 await connection.InvokeAsync("SendMessagePrivate",
                     ctUser.Text, ctTo.Text, ctMessage.Text);
             }
@@ -112,8 +127,21 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
         {
             try
             {
-                await connection.InvokeAsync("SendMessagePrivate",
-                    ctUser.Text, ctTo.Text, ctMessage.Text);
+                MsEvent message = new MsEvent
+                {
+                    EventType =EventTypes.AddCounter,
+                    Message="Hola Add Counter",
+                    Data=new EmployeeInfo
+                    {
+                        iEmployeeNum=1,
+                        tFirstName="Estivenson",
+                        tLastName="Perez taborda",
+                        bNewCounter=true,
+                        iCounter=10,
+                    }
+                };
+                await connection.InvokeAsync("SendMessageServer",
+                    ctUser.Text+ctIdUser, ctTo.Text, message);
             }
             catch (Exception ex)
             {

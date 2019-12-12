@@ -9,9 +9,10 @@ namespace Common.ChatSignalRNetCoreWebAppli.Models
         public const int MASS_RANGE = 4;
         public const int VISITOR_DEPARTMENT = 10000;
 
-        //public EmployeeInfo();
+        //public EmployeeInfo(); 
 
         //public AutoOpenInfo AutoOpen { get; set; }
+        public int iEmployeeNum { get; set; }
         public bool bAccessDenied { get; set; }
         public bool bEmailNotifications { get; set; }
         public bool bEnabledCount { get; set; }

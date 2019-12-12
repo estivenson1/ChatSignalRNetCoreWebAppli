@@ -38,12 +38,14 @@
             this.ctTo = new System.Windows.Forms.TextBox();
             this.btMsPrivado = new System.Windows.Forms.Button();
             this.btnMsEvent = new System.Windows.Forms.Button();
+            this.ctIdUser = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 9);
+            this.label1.Location = new System.Drawing.Point(3, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
@@ -52,7 +54,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 43);
+            this.label2.Location = new System.Drawing.Point(6, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 1;
@@ -60,21 +62,22 @@
             // 
             // ctUser
             // 
-            this.ctUser.Location = new System.Drawing.Point(60, 9);
+            this.ctUser.BackColor = System.Drawing.SystemColors.Info;
+            this.ctUser.Location = new System.Drawing.Point(63, 43);
             this.ctUser.Name = "ctUser";
             this.ctUser.Size = new System.Drawing.Size(100, 20);
             this.ctUser.TabIndex = 2;
             // 
             // ctMessage
             // 
-            this.ctMessage.Location = new System.Drawing.Point(60, 43);
+            this.ctMessage.Location = new System.Drawing.Point(63, 77);
             this.ctMessage.Name = "ctMessage";
             this.ctMessage.Size = new System.Drawing.Size(100, 20);
             this.ctMessage.TabIndex = 3;
             // 
             // btSendMessage
             // 
-            this.btSendMessage.Location = new System.Drawing.Point(6, 69);
+            this.btSendMessage.Location = new System.Drawing.Point(9, 103);
             this.btSendMessage.Name = "btSendMessage";
             this.btSendMessage.Size = new System.Drawing.Size(154, 23);
             this.btSendMessage.TabIndex = 4;
@@ -84,7 +87,7 @@
             // 
             // btConectar
             // 
-            this.btConectar.Location = new System.Drawing.Point(202, 5);
+            this.btConectar.Location = new System.Drawing.Point(192, 16);
             this.btConectar.Name = "btConectar";
             this.btConectar.Size = new System.Drawing.Size(75, 23);
             this.btConectar.TabIndex = 5;
@@ -95,21 +98,22 @@
             // messagesList
             // 
             this.messagesList.FormattingEnabled = true;
-            this.messagesList.Location = new System.Drawing.Point(3, 135);
+            this.messagesList.Location = new System.Drawing.Point(6, 132);
             this.messagesList.Name = "messagesList";
-            this.messagesList.Size = new System.Drawing.Size(354, 355);
+            this.messagesList.Size = new System.Drawing.Size(354, 420);
             this.messagesList.TabIndex = 6;
             // 
             // ctTo
             // 
-            this.ctTo.Location = new System.Drawing.Point(202, 34);
+            this.ctTo.Location = new System.Drawing.Point(192, 45);
             this.ctTo.Name = "ctTo";
             this.ctTo.Size = new System.Drawing.Size(100, 20);
             this.ctTo.TabIndex = 7;
+            this.ctTo.Text = "Server";
             // 
             // btMsPrivado
             // 
-            this.btMsPrivado.Location = new System.Drawing.Point(202, 60);
+            this.btMsPrivado.Location = new System.Drawing.Point(192, 71);
             this.btMsPrivado.Name = "btMsPrivado";
             this.btMsPrivado.Size = new System.Drawing.Size(75, 23);
             this.btMsPrivado.TabIndex = 8;
@@ -119,7 +123,7 @@
             // 
             // btnMsEvent
             // 
-            this.btnMsEvent.Location = new System.Drawing.Point(202, 90);
+            this.btnMsEvent.Location = new System.Drawing.Point(192, 101);
             this.btnMsEvent.Name = "btnMsEvent";
             this.btnMsEvent.Size = new System.Drawing.Size(100, 23);
             this.btnMsEvent.TabIndex = 9;
@@ -127,11 +131,30 @@
             this.btnMsEvent.UseVisualStyleBackColor = true;
             this.btnMsEvent.Click += new System.EventHandler(this.btnMsEvent_Click);
             // 
+            // ctIdUser
+            // 
+            this.ctIdUser.BackColor = System.Drawing.SystemColors.Info;
+            this.ctIdUser.Location = new System.Drawing.Point(63, 13);
+            this.ctIdUser.Name = "ctIdUser";
+            this.ctIdUser.Size = new System.Drawing.Size(100, 20);
+            this.ctIdUser.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "IdUser";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 502);
+            this.ClientSize = new System.Drawing.Size(363, 558);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ctIdUser);
             this.Controls.Add(this.btnMsEvent);
             this.Controls.Add(this.btMsPrivado);
             this.Controls.Add(this.ctTo);
@@ -161,6 +184,8 @@
         private System.Windows.Forms.TextBox ctTo;
         private System.Windows.Forms.Button btMsPrivado;
         private System.Windows.Forms.Button btnMsEvent;
+        private System.Windows.Forms.TextBox ctIdUser;
+        private System.Windows.Forms.Label label3;
     }
 }
 
