@@ -11,5 +11,7 @@ namespace Common.ChatSignalRNetCoreWebAppli.Models
         public string Message { get; set; }
         public object Data { get; set; }
         public string EventType { get; set; }
+
+        public string To { get; set; }
     }
 }

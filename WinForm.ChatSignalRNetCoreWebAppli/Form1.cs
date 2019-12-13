@@ -22,8 +22,11 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
         {
             InitializeComponent();
 
+            //string url = "http://localhost:50894/chatHub/";
+            string url = "https://localhost:5001/chatHub/";
+
             connection = new HubConnectionBuilder()
-            .WithUrl("http://localhost:50894/chatHub/")
+            .WithUrl(url)
             .Build();
 
             connection.Closed += async (error) =>
@@ -83,13 +86,15 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
                         //string json = JsonConvert.SerializeObject(message.Data);
                         // var emp = JsonConvert.DeserializeObject<EmployeeInfo>(json);
 
-                        var emp=JsonConvert.DeserializeObject<EmployeeInfo>(message.Data.ToString());
+                        var emp = JsonConvert.DeserializeObject<EmployeeInfo>(message.Data.ToString());
 
                         // EmployeeInfo emp = await JsonSerializer.DeserializeAsync<EmployeeInfo>()
 
                         var tox = to;
                         var newMessage = $"{user}: {emp.iEmployeeNum + emp.tFirstName + emp.tLastName}";
                         messagesList.Items.Add(newMessage);
+
+                      await  MsPrivad(to, message.To, "Hola 25: "+ message.To);
                     }
                 }));
             });
@@ -123,36 +128,41 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
 
         private async void btMsPrivado_Click(object sender, EventArgs e)
         {
+            string user = ctUser.Text + ctIdUser.Text;
+            await  MsPrivad(user,ctTo.Text,ctMessage.Text);
+        }
+        private async Task MsPrivad(string user, string to, string message)
+        {
             try
-            {               
-                await connection.InvokeAsync("SendMessagePrivate",
-                    ctUser.Text, ctTo.Text, ctMessage.Text);
+            {
+                await connection.InvokeAsync("SendMessagePrivate", user, to, message);
             }
             catch (Exception ex)
             {
                 messagesList.Items.Add(ex.Message);
             }
-
         }
 
         private async void btnMsEvent_Click(object sender, EventArgs e)
-        {   
+        {
             try
             {
+                string user = ctUser.Text + ctIdUser.Text;
                 MsEvent message = new MsEvent
                 {
-                    EventType =EventTypes.AddCounter.ToString(),
-                    Message="Hola Add Counter",
-                    Data=new EmployeeInfo
+                    EventType = EventTypes.AddCounter.ToString(),
+                    Message = "Hola Add Counter",
+                    Data = new EmployeeInfo
                     {
-                        iEmployeeNum=1,
-                        tFirstName="Estivenson",
-                        tLastName="Perez taborda",
-                        bNewCounter=true,
-                        iCounter=10,
-                    }
+                        iEmployeeNum = 1,
+                        tFirstName = "Estivenson",
+                        tLastName = "Perez taborda",
+                        bNewCounter = true,
+                        iCounter = 10,
+                    },
+                    To=user,
                 };
-                string user = ctUser.Text + ctIdUser.Text;
+              
                 await connection.InvokeAsync("SendMessageServer", user, ctTo.Text, message);
             }
             catch (Exception ex)
