@@ -64,7 +64,8 @@ namespace WinForm.ChatSignalRNetCoreWebAppli
             {
                 this.Invoke((Action)(() =>
                 {
-                    if (to == ctUser.Text)
+                    string User = ctUser.Text + ctIdUser.Text;
+                    if (to == User)
                     {
                         var tox = to;
                         var newMessage = $"{user}: {message}";
